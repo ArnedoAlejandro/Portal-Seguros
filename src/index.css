@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Tipografía base y fondo */
+body {
+  @apply bg-white text-gray-800 font-sans;
+}
+
+/* Links */
+
+/* Botones */
+.btn-primary {
+  @apply bg-blue-700 text-white px-6 py-2 rounded-md shadow hover:bg-blue-800 transition-colors font-semibold;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+}
+
+/* Formularios */
+input, textarea {
+  @apply border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+/* Responsive container */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}

@@ -1,0 +1,10 @@
+export { default as comercio } from "../assets/comercio.png";
+export { default as caucion } from "../assets/caucion.png";
+export { default as hogar } from "../assets/hogar.png";
+export { default as moto } from "../assets/moto.png";
+export { default as auto } from "../assets/auto.png";
+export { default as accidentePersonales } from "../assets/accidentePersonales.png";
+export { default as laSegunda } from "../assets/laSegunda.png";
+export { default as zurich } from "../assets/zurich.png";
+export { default as federacionPatronal } from "../assets/federacionPatronal.png";
+export { default as sanCristobal } from "../assets/sanCristobal.png";

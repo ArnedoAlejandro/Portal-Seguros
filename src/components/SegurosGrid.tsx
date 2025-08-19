@@ -1,5 +1,11 @@
 import { useState } from "react";
-import cobertura from "../assets/coberturas.png";
+
+// import hogar from "../assets/hogar.png";
+// import auto from "../assets/auto.png";
+// import moto from "../assets/moto.png";
+// import comercio from "../assets/comercio.png";
+// import caucion from "../assets/caucion.png";
+import { caucion, comercio, hogar, moto, auto, accidentePersonales } from "../assets";
 import InsuranceModal, { type InsuranceContent } from "./modal-seguros/InsuranceModal";
 
 export type Item = {
@@ -11,94 +17,286 @@ export type Item = {
 };
 
 const items: Item[] = [
-  { id: "auto",     title: "Auto",     desc: "Asegurá tu auto y manejá tranquilo",                 image: cobertura,                  to: "/seguros/auto" },
-  { id: "hogar",    title: "Hogar",    desc: "Tu casa siempre protegida",                          image: cobertura,                  to: "/seguros/hogar" },
-  { id: "moto",     title: "Moto",     desc: "Protegé a vos y a tu moto en todo momento",          image: "/images/seguro-moto.jpg",  to: "/seguros/moto" },
-  { id: "ap",       title: "Accidentes Personales", desc: "Tranquilidad para independientes y profesionales", image: "/images/seguro-ap.jpg", to: "/seguros/accidentes-personales" },
-  { id: "comercio", title: "Integral de Comercio",  desc: "Protegé tu mercadería y tu lugar de trabajo",      image: "/images/seguro-comercio.jpg", to: "/seguros/comercio" },
-  { id: "retiro",   title: "Seguro de Retiro",      desc: "Planificá tus ahorros e inversiones",              image: "/images/seguro-retiro.jpg", to: "/seguros/retiro" },
+  { id: "auto",     title: "Auto",     desc: "Asegurá tu auto y manejá tranquilo",                 image: auto,                  to: "/seguros/auto" },
+  { id: "hogar",    title: "Hogar",    desc: "Tu casa siempre protegida",                          image: hogar,                  to: "/seguros/hogar" },
+  { id: "moto",     title: "Moto",     desc: "Protegé a vos y a tu moto en todo momento",          image: moto,  to: "/seguros/moto" },
+  { id: "ap",       title: "Accidentes Personales", desc: "Tranquilidad para independientes y profesionales", image: accidentePersonales, to: "/seguros/accidentes-personales" },
+  { id: "comercio", title: "Integral de Comercio",  desc: "Protegé tu mercadería y tu lugar de trabajo",      image: comercio, to: "/seguros/comercio" },
+ { id: "caucion", title: "Seguro de Caución", desc: "Garantizá contratos y obligaciones con respaldo asegurador", image: caucion, to: "/seguros/caucion" },
+
 ];
 
 const INSURANCE_CONTENT: Record<string, InsuranceContent> = {
   auto: {
     headline: "Seguro de Auto",
-    bullets: [
-      "RC obligatoria + coberturas contra terceros.",
-      "Todo Riesgo con o sin franquicia.",
-      "Reposición de cristales y cerraduras.",
-      "Asistencia 24/7 y grúa en todo el país."
+    resume:
+      "Protegé tu vehículo y tu responsabilidad frente a terceros. Planes desde RC obligatoria hasta Todo Riesgo con franquicia.",
+    covers: [
+      "Responsabilidad Civil (RC) obligatoria según Ley de Tránsito.",
+      "Daños parciales por robo/ hurto / incendio (según plan).",
+      "Destrucción total por accidente o incendio (según condiciones del plan).",
+      "Cristales, cerraduras y granizo (con o sin franquicia, según plan).",
+      "Asistencia mecánica y remolque 24/7 en todo el país (topes por km)."
     ],
-    details: "Cotizá en múltiples compañías para obtener el mejor precio y respaldo.",
+    optional: [
+      "Cobertura de llantas y neumáticos por daños accidentales.",
+      "Auto sustituto por días (según siniestro y plan).",
+      "Extensión de cobertura a países limítrofes.",
+      "Reposición a nuevo por X meses (0 km / usados, según compañía)."
+    ],
+    excludes: [
+      "Conducción bajo alcohol/drogas o sin licencia habilitante.",
+      "Uso en competencias, pruebas de velocidad o remunerado no declarado.",
+      "Siniestros fuera del territorio cubierto o con póliza impaga."
+    ],
+    requirements: [
+      "Cédula verde/azul y licencia vigente del conductor.",
+      "Inspección previa con fotos (según compañía/plan).",
+      "Declaración de estado y accesorios (alarma, rastreo, etc.)."
+    ],
+    documents: [
+      "DNI y licencia del conductor habitual.",
+      "Cédula del vehículo y comprobante de titularidad.",
+      "Inspección previa (fotos o taller asignado)."
+    ],
+    claimSteps: [
+      "Priorizar tu seguridad y la de terceros; pedir auxilio si corresponde.",
+      "Tomar fotos y datos (lugar, hora, terceros, testigos, patente).",
+      "Denunciar el siniestro a la aseguradora y al productor lo antes posible (ideal dentro de 72 h).",
+      "Completar formulario de reclamo/denuncia y aportar documentación que pidan.",
+      "Seguir las indicaciones de peritaje, derivación a taller y pago de franquicia si aplica."
+    ],
+    faqs: [
+      {
+        q: "¿Qué significa 'franquicia'?",
+        a: "Es el valor a tu cargo en un siniestro de Todo Riesgo. Cuanto mayor la franquicia, menor suele ser la prima."
+      },
+      {
+        q: "¿Granizo está siempre cubierto?",
+        a: "Depende del plan. Puede estar incluido, con tope o ser opcional con franquicia. Lo definimos según tu zona y uso."
+      }
+    ],
     primaryCta: { label: "Cotizar Auto", to: "/cotizar?tipo=auto" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/auto" }
+    secondaryCta: { label: "Ver coberturas", to: "/seguros/auto" },
+    legal:
+      "Coberturas y alcances sujetos a condiciones generales y particulares de póliza de cada compañía. Vigencia en República Argentina. Ante la SSN podés consultar tu aseguradora en www.argentina.gob.ar/ssn."
   },
+
   hogar: {
     headline: "Seguro de Hogar",
-    bullets: [
-      "Incendio, robo, daños por agua.",
-      "Electrodomésticos y equipos electrónicos.",
-      "Responsabilidad civil linderos.",
-      "Servicio de asistencia al hogar."
+    resume:
+      "Protección integral para tu vivienda y su contenido, con asistencia y responsabilidad civil linderos.",
+    covers: [
+      "Incendio edificio y contenido (hogar propio o alquilado).",
+      "Robo/daño de contenido y electrodomésticos (según suma y topes).",
+      "Daños por agua e impacto de granizo/árboles (según plan).",
+      "Responsabilidad Civil linderos.",
+      "Asistencia al hogar (cerrajería, plomería, electricidad)."
     ],
-    details: "Protegé tu hogar con planes flexibles y suma de asegurada ajustable.",
+    optional: [
+      "Electrodomésticos fuera del hogar (portátiles, notebooks).",
+      "Todo Riesgo Objetos (bicicletas, cámaras, instrumentos).",
+      "Granizo para techos delicados o patios vidriados (según inspección)."
+    ],
+    excludes: [
+      "Viviendas deshabitadas por períodos prolongados sin declaración.",
+      "Daños por falta de mantenimiento o desgaste normal.",
+      "Hechos intencionales o fraude."
+    ],
+    requirements: [
+      "Domicilio claro y tipo de vivienda.",
+      "Medidas de seguridad básicas (cerraduras, rejas según zona).",
+      "Declaración de sumas aseguradas realistas (edificio/contenido)."
+    ],
+    documents: [
+      "DNI del titular.",
+      "Comprobante de domicilio.",
+      "Listado orientativo de contenido de mayor valor."
+    ],
+    claimSteps: [
+      "Mitigar daños si es seguro hacerlo (cortar agua/luz).",
+      "Sacar fotos y conservar comprobantes de reparación/compra.",
+      "Denunciar a la aseguradora dentro de 72 h y completar formulario.",
+      "Aportar presupuestos y/o facturas si corresponden.",
+      "Coordinar peritaje y reposición/indemnización según condiciones."
+    ],
+    faqs: [
+      { q: "¿Qué suma aseguro para contenido?", a: "Recomendamos un listado con valores de reposición a nuevo para evitar infraseguro." },
+      { q: "¿Cubre mascotas?", a: "La RC linderos puede contemplar daños a terceros por tu mascota. Consultar límites y condiciones." }
+    ],
     primaryCta: { label: "Cotizar Hogar", to: "/cotizar?tipo=hogar" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/hogar" }
+    secondaryCta: { label: "Ver coberturas", to: "/seguros/hogar" },
+    legal:
+      "Las coberturas pueden requerir inspección y medidas de seguridad. Condiciones sujetas a póliza. SSN: consultar aseguradoras habilitadas."
   },
+
   moto: {
     headline: "Seguro de Moto",
-    bullets: [
-      "RC + robo/incendio",
-      "Coberturas parciales o completas",
-      "Asistencia al viajero",
-      "Reposición de casco/indumentaria*"
+    resume:
+      "Planes desde RC obligatoria hasta coberturas con robo/ incendio y daños parciales.",
+    covers: [
+      "Responsabilidad Civil obligatoria (Ley).",
+      "Robo e incendio total o parcial (según plan).",
+      "Asistencia y remolque (topes por km)."
     ],
-    details: "Opciones pensadas para uso diario y touring. *Según plan.",
+    optional: [
+      "Cobertura de indumentaria y casco por accidente.",
+      "Granizo y daños parciales (según compañía/modelo)."
+    ],
+    excludes: [
+      "Conducción sin casco o sin licencia habilitante.",
+      "Uso en competencias o delivery no declarado.",
+      "Modificaciones no declaradas."
+    ],
+    requirements: [
+      "Titularidad y licencia vigente.",
+      "Inspección fotográfica según compañía."
+    ],
+    documents: [
+      "DNI, cédula de la moto, licencia.",
+      "Fotos para inspección previa."
+    ],
+    claimSteps: [
+      "Priorizar tu seguridad, registrar datos y fotos.",
+      "Denunciar dentro de 72 h y seguir indicaciones del productor.",
+      "Presentar comprobantes y peritaje si aplica."
+    ],
+    faqs: [
+      { q: "¿Puedo asegurar una moto antigua?", a: "Depende del año y estado. Consultamos compañías que acepten ese rango." }
+    ],
     primaryCta: { label: "Cotizar Moto", to: "/cotizar?tipo=moto" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/moto" }
+    secondaryCta: { label: "Ver coberturas", to: "/seguros/moto" },
+    legal: "Sujetos a evaluación de riesgo y condiciones de póliza. Ámbito: Argentina."
   },
+
   ap: {
     headline: "Accidentes Personales",
-    bullets: [
-      "Cobertura 24 hs dentro/fuera del trabajo",
-      "Rentas diarias por internación",
-      "Gastos médicos y farmacéuticos",
-      "Asistencia inmediata"
+    resume:
+      "Cobertura de accidentes 24 hs (dentro y fuera del trabajo) con gastos médicos, rentas y capital por invalidez o fallecimiento por accidente.",
+    covers: [
+      "Gastos médicos y farmacéuticos por accidente (topes).",
+      "Renta diaria por internación/IT (según plan).",
+      "Invalidez permanente y fallecimiento por accidente."
     ],
-    details: "Especial para independientes y profesionales que necesitan continuidad de ingresos.",
+    optional: [
+      "Traslado sanitario y asistencia al viajero.",
+      "Prótesis y ortopedia (con topes)."
+    ],
+    excludes: [
+      "Enfermedades (no accidentales) salvo endosos específicos.",
+      "Deportes de alto riesgo no declarados.",
+      "Hechos intencionales."
+    ],
+    requirements: [
+      "Declaración de actividad (profesión/oficio).",
+      "Edad de ingreso dentro del rango de la compañía."
+    ],
+    documents: [
+      "DNI, CUIL y declaración de salud (según suma)."
+    ],
+    claimSteps: [
+      "Atención médica inmediata y conservación de estudios/comprobantes.",
+      "Denunciar el accidente lo antes posible (ideal 72 h).",
+      "Presentar historia clínica y formularios provistos por la aseguradora."
+    ],
+    faqs: [
+      { q: "¿Cubre enfermedades?", a: "No, es una póliza orientada a accidentes. Podemos ver combinaciones con Salud/VIDA." }
+    ],
     primaryCta: { label: "Cotizar AP", to: "/cotizar?tipo=ap" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/accidentes-personales" }
+    secondaryCta: { label: "Ver coberturas", to: "/seguros/accidentes-personales" },
+    legal: "Condiciones y límites según póliza. Ver restricciones por actividad/edad."
   },
+
   comercio: {
     headline: "Integral de Comercio",
-    bullets: [
-      "Incendio y robo de contenido",
-      "Daños por agua y vandalismo",
-      "RC hacia clientes",
-      "Cobertura de cristales y cartelería"
+    resume:
+      "Protección para tu local, mercadería y responsabilidad frente a clientes y vecinos.",
+    covers: [
+      "Incendio edificio y contenido/mercadería.",
+      "Robo con violencia (según medidas de seguridad).",
+      "Daños por agua, rotura de vidrios/cartelería.",
+      "Responsabilidad Civil hacia clientes y linderos."
     ],
-    details: "Protegé tu mercadería, equipamiento y responsabilidad frente a terceros.",
+    optional: [
+      "Pérdida de beneficios por interrupción del negocio.",
+      "Equipos electrónicos y POS.",
+      "RC productos elaborados."
+    ],
+    excludes: [
+      "Falta de mantenimiento, instalaciones eléctricas en mal estado.",
+      "Dinero en efectivo no declarado o fuera de caja fuerte.",
+      "Locales desocupados por períodos prolongados no informados."
+    ],
+    requirements: [
+      "Medidas de seguridad (cerraduras, rejas/alarma según zona).",
+      "Declaración de rubro y mercadería."
+    ],
+    documents: [
+      "DNI y constancia de CUIT.",
+      "Habilitación municipal (si aplica).",
+      "Listado orientativo de equipamiento/stock."
+    ],
+    claimSteps: [
+      "Proteger bienes y notificar a la policía si corresponde (robos).",
+      "Tomar fotos y guardar comprobantes.",
+      "Denunciar dentro de 72 h y coordinar peritaje."
+    ],
+    faqs: [
+      { q: "¿Puedo asegurar stock variable?", a: "Sí, definimos suma con base y cláusula de ajuste estacional si hace falta." }
+    ],
     primaryCta: { label: "Cotizar Comercio", to: "/cotizar?tipo=comercio" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/comercio" }
+    secondaryCta: { label: "Ver coberturas", to: "/seguros/comercio" },
+    legal: "Coberturas sujetas a inspección y medidas de seguridad. Póliza y condiciones aplican."
   },
-  retiro: {
-    headline: "Seguro de Retiro",
-    bullets: [
-      "Ahorro programado con interés compuesto",
-      "Beneficios impositivos* (*según normativa)",
-      "Aportes flexibles y rescates parciales",
-      "Designación de beneficiarios"
-    ],
-    details: "Planificá tu futuro con capitalización a largo plazo.",
-    primaryCta: { label: "Cotizar Retiro", to: "/cotizar?tipo=retiro" },
-    secondaryCta: { label: "Ver coberturas", to: "/seguros/retiro" }
-  }
-};
 
+  caucion: {
+  headline: "Seguro de Caución",
+  resume:
+    "Respaldo financiero que garantiza el cumplimiento de obligaciones contractuales frente a terceros, aportando confianza y seguridad en tus operaciones.",
+  covers: [
+    "Garantía de cumplimiento de contratos de obra y servicios.",
+    "Garantía aduanera para importaciones y exportaciones.",
+    "Garantías judiciales requeridas por tribunales.",
+    "Garantías de anticipo financiero o acopio."
+  ],
+  optional: [
+    "Extensión de cobertura a obligaciones accesorias.",
+    "Renovaciones automáticas según condiciones contractuales."
+  ],
+  excludes: [
+    "Cobertura de riesgos no contractuales.",
+    "Obligaciones personales sin respaldo documental."
+  ],
+  requirements: [
+    "Documentación legal y fiscal del solicitante.",
+    "Contrato u obligación a garantizar.",
+    "Evaluación crediticia y patrimonial del tomador."
+  ],
+  documents: [
+    "DNI y CUIT/CUIL.",
+    "Estados contables actualizados.",
+    "Copia del contrato o pliego licitatorio."
+  ],
+  claimSteps: [
+    "Notificación de incumplimiento por parte del asegurado.",
+    "Presentación de documentación probatoria del contrato.",
+    "Evaluación de la aseguradora y pago según condiciones."
+  ],
+  faqs: [
+    { q: "¿Qué cubre un seguro de caución?", a: "Garantiza al acreedor que el tomador cumplirá con sus obligaciones contractuales o legales." },
+    { q: "¿En qué casos se solicita?", a: "Es común en licitaciones públicas, contratos de obra, operaciones aduaneras y procesos judiciales." }
+  ],
+  primaryCta: { label: "Solicitar Caución", to: "/cotizar?tipo=caucion" },
+  secondaryCta: { label: "Ver coberturas", to: "/seguros/caucion" },
+  legal:
+    "El seguro de caución no reemplaza el cumplimiento de la obligación principal, sino que actúa como garantía frente al beneficiario en caso de incumplimiento."
+}
+};
 export default function SegurosGrid() {
   const [selected, setSelected] = useState<Item | null>(null);
 
   return (
-    <section className="bg-[#F4F7FB]">
+    <section className="bg-[#F8FAFC]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-[#2A3B8F]">
           Conocé más sobre nuestros seguros
@@ -127,7 +325,7 @@ function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
     <button
       type="button"
       onClick={onOpen}
-      className="group relative text-left rounded-2xl bg-white border border-gray-100 shadow-[0_8px_24px_rgba(17,24,39,0.06)] hover:shadow-[0_10px_28px_rgba(17,24,39,0.10)] transition-shadow duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2442DB]"
+      className="group relative text-left rounded-2xl cursor-pointer bg-white border border-gray-100 shadow-[0_8px_24px_rgba(17,24,39,0.06)] hover:shadow-[0_10px_28px_rgba(17,24,39,0.10)] transition-shadow duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2442DB]"
       aria-label={`Abrir información de ${item.title}`}
     >
       <div className="grid grid-cols-[1fr_42%] min-h-[170px]">
@@ -145,7 +343,7 @@ function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
           <img
             src={item.image}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="  w-full h-full object-fit "
             loading="lazy"
             draggable={false}
           />

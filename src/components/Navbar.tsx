@@ -12,7 +12,7 @@ const Navbar = () => {
                         <Link to="/" className="text-white hover:text-gray-200">Inicio</Link>
                     </li>
                     <li>
-                        <Link to="/about" className="text-white hover:text-gray-200">Sobre Nosotros</Link>
+                        <Link to="/about" className="text-white hover:text-gray-200">Sobre Mi</Link>
                     </li>
                     <li>
                         <Link to="/services" className="text-white hover:text-gray-200">Servicios</Link>
@@ -21,7 +21,7 @@ const Navbar = () => {
                         <Link to="/quote" className="text-white hover:text-gray-200">Cotización</Link>
                     </li>
                     <li>
-                        <Link to="/faq" className="text-white hover:text-gray-200">FAQ</Link>
+                        <Link to="/faq" className="text-white hover:text-gray-200">Compañias</Link>
                     </li>
                     <li >
                         <Link to="/contact" className="text-white hover:text-gray-200">Contacto</Link>

@@ -35,10 +35,9 @@ export default function Companias({
   subtitulo = "Aliados que respaldan cada póliza con solidez y trayectoria.",
   companias = COMPANIAS,
   // chips = ["Atención en todo el país", "Siniestros 24/7", "Múltiples compañías", "Asesor registrado SSN"],
-  note = "Las marcas mostradas son propiedad de sus titulares. Coberturas sujetas a condiciones generales y particulares de póliza en la República Argentina.",
 }: Props) {
   return (
-    <section className="w-full bg-[#F7F9FE] py-14">
+    <section className="w-full bg-[#F7F9FE] py-14" id="companias">
       <div className="max-w-6xl mx-auto px-5">
         {/* Header */}
         <header className="text-center mb-7 md:mb-10">
@@ -75,23 +74,7 @@ export default function Companias({
             <TarjetaLogo key={c.id} data={c} showCaption />
           ))}
         </div>
-
-        {/* CTA + Nota */}
-        <div className="mt-10 flex flex-col items-center gap-3">
-          {/* {ctaLabel && (
-            <a
-              href={ctaHref}
-              className="inline-flex items-center justify-center rounded-xl bg-[#2647D8] text-white px-5 py-2.5 text-sm font-semibold shadow hover:bg-[#1f3dc0] transition-colors"
-            >
-              {ctaLabel}
-            </a>
-          )} */}
-          {note && (
-            <p className="text-[12px] leading-relaxed text-[#1F2A66]/60 text-center max-w-3xl">
-              {note}
-            </p>
-          )}
-        </div>
+    
       </div>
     </section>
   );

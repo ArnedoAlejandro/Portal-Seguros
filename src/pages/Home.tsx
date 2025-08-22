@@ -1,5 +1,6 @@
 
 import Companias from "../components/Compania";
+import ContactForm from "../components/ContactForm";
 import Presentacion from "../components/Presentacion";
 import SegurosGrid from "../components/SegurosGrid";
 import SliderHome from "../components/SliderHome";
@@ -14,6 +15,7 @@ export default function HeaderHero() {
     <Presentacion/>
     <Companias/>
     <SegurosGrid/>
+    <ContactForm/>
     </>
   );
 }

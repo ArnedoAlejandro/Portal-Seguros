@@ -82,6 +82,7 @@ export default function SliderHome({
 
   return (
     <section
+      id="inicio"
       role="region"
       aria-roledescription="carrusel"
       aria-label="Promociones de seguros"

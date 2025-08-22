@@ -296,7 +296,7 @@ export default function SegurosGrid() {
   const [selected, setSelected] = useState<Item | null>(null);
 
   return (
-    <section className="bg-[#F8FAFC]">
+    <section className="bg-[#F8FAFC]" id="servicios">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-[#2A3B8F]">
           Conocé más sobre nuestros seguros
@@ -347,7 +347,7 @@ function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
             loading="lazy"
             draggable={false}
           />
-          <div className="absolute -left-4 bottom-4 w-10 h-10 bg-[#2A3B8F] rounded-full rounded-bl-2xl shadow-lg" />
+          {/* <div className="absolute -left-4 bottom-4 w-10 h-10 bg-[#2A3B8F] rounded-full rounded-bl-2xl shadow-lg" /> */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
         </div>
       </div>

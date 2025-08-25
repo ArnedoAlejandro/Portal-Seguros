@@ -29,10 +29,13 @@ export default function AboutMe() {
           <p className="text-lg text-blue-700 font-semibold">
             Productor Asesor de Seguros
           </p>
+          <p className=" text-gray-700 font-semibold">
+            MP: 96494
+          </p>
           <p className="text-gray-700 leading-relaxed">
-            Con más de <span className="font-bold">7 años de experiencia</span> 
+            Con más de <span className="font-bold">7 años de experiencia </span>  
             en el rubro, trabajando con múltiples compañías y asociado a un broker, 
-            brindo <span className="font-medium">soluciones integrales de seguros</span> 
+            brindo <span className="font-medium">soluciones integrales de seguros </span> 
             para personas y empresas.
           </p>
           <p className="text-gray-700 leading-relaxed">
@@ -41,7 +44,8 @@ export default function AboutMe() {
           </p>
           <div>
             <a
-              href="/contacto"
+              href="https://api.whatsapp.com/send?phone=5493548569580"   
+              target="_blank"
               className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors"
             >
               Contactarme

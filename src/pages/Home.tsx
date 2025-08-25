@@ -4,7 +4,8 @@ import ContactForm from "../components/ContactForm";
 import Presentacion from "../components/Presentacion";
 import SegurosGrid from "../components/SegurosGrid";
 import SliderHome from "../components/SliderHome";
-// import SegurosGrid from "../components/SegurosGrid";
+import Testimonials from "../components/Testimonial";
+
 
 
 export default function HeaderHero() {
@@ -15,6 +16,7 @@ export default function HeaderHero() {
     <Presentacion/>
     <Companias/>
     <SegurosGrid/>
+    <Testimonials/>
     <ContactForm/>
     </>
   );

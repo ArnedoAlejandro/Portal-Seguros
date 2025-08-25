@@ -4,26 +4,18 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto text-center">
-        <p className="mb-4">Síguenos en nuestras redes sociales</p>
+        <p className="mb-4">Sígueme en mis redes sociales</p>
         <div className="flex justify-center space-x-4 mb-4">
           <a
-            href="https://facebook.com"
+            href={`mailto:arnedoaalejandro@gmail.com?subject=Consulta%20de%20seguros&body=Hola%20Alejandro,%20quiero%20hacer%20una%20consulta%20sobre...`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400"
           >
-            Facebook
+            Gmail
           </a>
           <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400"
-          >
-            Twitter
-          </a>
-          <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/arnedoalejandro/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400"
@@ -31,7 +23,7 @@ const Footer = () => {
             Instagram
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/alejandro-augusto-arnedo-27a189240/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400"
@@ -39,9 +31,9 @@ const Footer = () => {
             LinkedIn
           </a>
         </div>
-        <p className="mb-4">¿Necesitás ayuda? Contactanos por WhatsApp</p>
+        <p className="mb-4">¿Necesitás ayuda? Contactame por WhatsApp</p>
         <a
-          href="https://wa.me/yourwhatsapplink"
+          href="https://api.whatsapp.com/send?phone=5493548569580"     
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-400 hover:underline"
@@ -59,7 +51,6 @@ const Footer = () => {
           República Argentina.
         </p>
         </div>
-     
       </div>
     </footer>
   );

@@ -1,10 +1,6 @@
 import { useState } from "react";
 
-// import hogar from "../assets/hogar.png";
-// import auto from "../assets/auto.png";
-// import moto from "../assets/moto.png";
-// import comercio from "../assets/comercio.png";
-// import caucion from "../assets/caucion.png";
+
 import { caucion, comercio, hogar, moto, auto, accidentePersonales } from "../assets";
 import InsuranceModal, { type InsuranceContent } from "./modal-seguros/InsuranceModal";
 

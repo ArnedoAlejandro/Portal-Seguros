@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import {  logoTipografia } from "../assets";
 
 const NAV_ITEMS = [
   { id: "inicio", label: "Inicio" },
   { id: "about", label: "Sobre mí" },
   { id: "companias", label: "Compañías" },
   { id: "servicios", label: "Servicios" },
+  { id: "testimoniales", label: "Testionales" },
   { id: "contact", label: "Contacto" },
 ];
 
@@ -26,15 +28,15 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-black/30 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 max-md:px-4">
         <div className="flex h-16 items-center justify-between">
-          <button
-            onClick={() => goTo("inicio")}
-            className="text-white text-lg font-extrabold tracking-tight"
-            aria-label="Ir al inicio"
-          >
-            Asesor de Seguros
-          </button>
+          <div className="flex items-center space-x-2">
+  {/* Logo ícono (opcional) */}
+            <img src={logoTipografia} alt="Logo" className=" w-60 h-auto max-md:w-72" />
+            
+            </div>
+
+
 
           {/* Desktop */}
           <ul className="hidden md:flex items-center gap-6">
@@ -42,7 +44,7 @@ export default function Navbar() {
               <li key={item.id}>
                 <button
                   onClick={() => goTo(item.id)}
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-white/90 hover:text-white transition-colors cursor-pointer"
                 >
                   {item.label}
                 </button>
@@ -53,16 +55,16 @@ export default function Navbar() {
           {/* Redes Desktop */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="https://www.facebook.com"
+              href={`mailto:arnedoaalejandro@gmail.com?subject=Consulta%20de%20seguros&body=Hola%20Alejandro,%20quiero%20hacer%20una%20consulta%20sobre...`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 hover:text-white transition-colors"
               aria-label="Facebook"
             >
-              Facebook
+              Gmail
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.linkedin.com/in/alejandro-augusto-arnedo-27a189240/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 hover:text-white transition-colors"

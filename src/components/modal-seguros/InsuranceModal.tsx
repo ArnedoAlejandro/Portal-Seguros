@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 
 export type Item = {
   id: string;
@@ -11,17 +10,17 @@ export type Item = {
 
 export type InsuranceContent = {
   headline: string;
-  resume?: string;             // breve descripción opcional
-  covers: string[];            // Qué cubre (base)
-  optional?: string[];         // Adicionales/Endosos
-  excludes?: string[];         // Exclusiones típicas
-  requirements?: string[];     // Requisitos de contratación
-  documents?: string[];        // Documentación habitual
-  claimSteps?: string[];       // Pasos ante siniestro
+  resume?: string;
+  covers: string[];
+  optional?: string[];
+  excludes?: string[];
+  requirements?: string[];
+  documents?: string[];
+  claimSteps?: string[];
   faqs?: { q: string; a: string }[];
   primaryCta?: { label: string; to: string };
   secondaryCta?: { label: string; to: string };
-  legal?: string;              // disclaimer/regulatorio
+  legal?: string;
 };
 
 export default function InsuranceModal({
@@ -38,7 +37,6 @@ export default function InsuranceModal({
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const data = item ? content[item.id] : null;
 
-  // Bloquear scroll y cerrar con ESC
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -55,7 +53,6 @@ export default function InsuranceModal({
 
   if (!open || !item || !data) return null;
 
-  // Simple acordeón accesible con <details>
   const Section = ({
     title,
     children,
@@ -101,8 +98,10 @@ export default function InsuranceModal({
 
       {/* Panel (bottom-sheet en mobile, centrado en desktop) */}
       <div className="absolute inset-0 flex items-end sm:items-center justify-center p-0 sm:p-6">
-        <div className="relative w-full sm:max-w-3xl bg-white rounded-t-2xl sm:rounded-2xl shadow-xl overflow-hidden">
-          {/* Header */}
+        {/* 👇 max-h + flex-col + overflow-y en el body para scroll interno */}
+        <div className="relative w-full sm:max-w-3xl bg-white rounded-t-2xl sm:rounded-2xl shadow-xl overflow-hidden
+                        max-h-[92vh] sm:max-h-[90vh] flex flex-col">
+          {/* Header (opcional sticky si querés que quede fijo) */}
           <div className="flex items-start gap-3 p-5 border-b border-gray-100">
             <div className="shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
               <img src={item.image} alt="" className="w-full h-full object-cover" />
@@ -123,8 +122,9 @@ export default function InsuranceModal({
             </button>
           </div>
 
-          {/* Body */}
-          <div className="p-5 sm:p-6 space-y-3">
+          {/* Body scrollable */}
+          <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5 space-y-3
+                          [scrollbar-gutter:stable] [-webkit-overflow-scrolling:touch]">
             {data.resume && (
               <p className="text-sm text-gray-700 bg-[#F4F7FB] rounded-lg p-3">{data.resume}</p>
             )}
@@ -176,29 +176,38 @@ export default function InsuranceModal({
               </Section>
             ) : null}
 
-            {/* CTAs */}
             {(data.primaryCta || data.secondaryCta) && (
               <div className="pt-2 flex flex-wrap gap-3">
                 {data.primaryCta && (
-                  <Link
-                    to={data.primaryCta.to}
+                  <a
+                    href="https://api.whatsapp.com/send?phone=5493548569580"
+                    target="_blank"
                     className="inline-flex items-center justify-center rounded-xl bg-[#2A3B8F] text-white px-4 py-2.5 text-sm font-semibold shadow hover:opacity-90"
                   >
-                    {data.primaryCta.label}
-                  </Link>
+                    Cotizar ahora
+                  </a>
+            //           <a
+            //   href="https://api.whatsapp.com/send?phone=5493548569580"                // fallback si JS bloquea window.open
+            //   // onClick={openWhatsApp}        // intenta deep/web/api en orden
+            //   target="_blank"
+            //   rel="noopener noreferrer"
+            //   className="text-white/90 hover:text-white transition-colors"
+            //   aria-label="WhatsApp"
+            // >
+            //   WhatsApp
+            // </a>
                 )}
-                {data.secondaryCta && (
+                {/* {data.secondaryCta && (
                   <Link
                     to={data.secondaryCta.to}
                     className="inline-flex items-center justify-center rounded-xl border border-[#2A3B8F] text-[#2A3B8F] px-4 py-2.5 text-sm font-semibold hover:bg-[#2A3B8F]/5"
                   >
                     {data.secondaryCta.label}
                   </Link>
-                )}
+                )} */}
               </div>
             )}
 
-            {/* Legal */}
             {data.legal && (
               <p className="text-[12px] text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
                 {data.legal}

@@ -8,19 +8,26 @@ type FormState = {
   consulta: string;
 };
 
-const initial: FormState = { nombre: "", telefono: "", email: "", consulta: "" };
+const initial: FormState = {
+  nombre: "",
+  telefono: "",
+  email: "",
+  consulta: "",
+};
 
 // Variables de entorno (Vite)
-const SERVICE_ID  = "service_3v41ogg" ;
+const SERVICE_ID = "service_3v41ogg";
 const TEMPLATE_ID = "template_gkjdgvx";
-const PUBLIC_KEY  = "zOwm2XZOLOBlpnQSW";
+const PUBLIC_KEY = "zOwm2XZOLOBlpnQSW";
 
 export default function ContactForm() {
   const [data, setData] = useState<FormState>(initial);
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<"ok" | "error" | "">("");
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setData((d) => ({ ...d, [name]: value }));
   };
@@ -41,9 +48,6 @@ export default function ContactForm() {
     }
     setSending(true);
     setStatus("");
-
-    // (Opcional) honeypot si lo agregás como campo oculto
-    // if ((e.target as HTMLFormElement)?.company?.value) return;
 
     // Envío con EmailJS usando objeto de parámetros
     emailjs
@@ -80,13 +84,15 @@ export default function ContactForm() {
             ¿Hablamos de tu seguro?
           </h2>
           <p className="mt-3 text-[#1F2A66]/70">
-            Dejá tus datos y te contacto para asesorarte con claridad y sin
-            letra chica. Atención en todo el país.
+            Dejá tus datos y te contacto para asesorarte con claridad .
           </p>
+          <p className="mt-3 text-[#1F2A66]/70">Atención en todo el país.</p>
 
           <ul className="mt-6 space-y-2 text-sm text-[#1F2A66]/80">
             <li>• Respuesta dentro del mismo día hábil</li>
-            <li>• Asesoramiento integral (auto, hogar, vida, PyME, comercio)</li>
+            <li>
+              • Asesoramiento integral (auto, hogar, vida, PyME, comercio)
+            </li>
             <li>• Trabajo con múltiples compañías líderes</li>
           </ul>
         </div>
@@ -98,7 +104,10 @@ export default function ContactForm() {
             {/* <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" /> */}
 
             <div>
-              <label htmlFor="nombre" className="block text-sm font-medium text-[#1F2A66]">
+              <label
+                htmlFor="nombre"
+                className="block text-sm font-medium text-[#1F2A66]"
+              >
                 Nombre y apellido
               </label>
               <input
@@ -116,7 +125,10 @@ export default function ContactForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="telefono" className="block text-sm font-medium text-[#1F2A66]">
+                <label
+                  htmlFor="telefono"
+                  className="block text-sm font-medium text-[#1F2A66]"
+                >
                   Teléfono
                 </label>
                 <input
@@ -127,12 +139,15 @@ export default function ContactForm() {
                   inputMode="tel"
                   required
                   className="mt-1 w-full rounded-xl border border-[#E6ECFF] bg-[#F9FBFF]
-                             px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#2647D8]"
+                            px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#2647D8]"
                   placeholder="+54 9 ..."
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#1F2A66]">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-[#1F2A66]"
+                >
                   Email
                 </label>
                 <input
@@ -143,14 +158,17 @@ export default function ContactForm() {
                   onChange={onChange}
                   required
                   className="mt-1 w-full rounded-xl border border-[#E6ECFF] bg-[#F9FBFF]
-                             px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#2647D8]"
+                            px-4 py-2.5 outline-none focus:ring-2 focus:ring-[#2647D8]"
                   placeholder="tuemail@dominio.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="consulta" className="block text-sm font-medium text-[#1F2A66]">
+              <label
+                htmlFor="consulta"
+                className="block text-sm font-medium text-[#1F2A66]"
+              >
                 Consulta
               </label>
               <textarea

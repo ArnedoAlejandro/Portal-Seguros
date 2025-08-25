@@ -8,3 +8,5 @@ export { default as laSegunda } from "../assets/laSegunda.png";
 export { default as zurich } from "../assets/zurich.png";
 export { default as federacionPatronal } from "../assets/federacionPatronal.png";
 export { default as sanCristobal } from "../assets/sanCristobal.png";
+export { default as logo } from "../assets/logo.png";
+export { default as logoTipografia } from "../assets/logoTipografia.png";

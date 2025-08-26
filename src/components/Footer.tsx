@@ -1,8 +1,7 @@
-import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
+    <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto text-center">
         <p className="mb-4">Sígueme en mis redes sociales</p>
         <div className="flex justify-center space-x-4 mb-4">

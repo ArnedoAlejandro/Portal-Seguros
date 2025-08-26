@@ -10,3 +10,6 @@ export { default as federacionPatronal } from "../assets/federacionPatronal.png"
 export { default as sanCristobal } from "../assets/sanCristobal.png";
 export { default as logo } from "../assets/logo.png";
 export { default as logoTipografia } from "../assets/logoTipografia.png";
+export { default as familiaImg } from "../assets/familiaImg.png";
+export { default as asesorImg } from "../assets/asesorImg.png";
+export { default as sliderImg } from "../assets/sliderImg.png";

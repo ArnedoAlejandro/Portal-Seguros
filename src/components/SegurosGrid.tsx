@@ -295,7 +295,7 @@ export default function SegurosGrid() {
     <section className="bg-[#F8FAFC]" id="servicios">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-[#2A3B8F]">
-          Conocé más sobre nuestros seguros
+          Conocé más sobre mis servicios de seguros
         </h2>
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

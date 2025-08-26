@@ -2,9 +2,8 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // Imágenes locales
-import sliderImg from "../assets/sliderImg.png";
-import asesorImg from "../assets/asesorImg.png";
-import familiaImg from "../assets/familiaImg.png";
+import {sliderImg, asesorImg, familiaImg} from "../assets";
+
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -124,12 +123,15 @@ export default function SliderHome({
                       </p>
                     )}
                     {slide.btnText && slide.btnTo && (
-                      <Link
-                        to={slide.btnTo}
+                      <a
+                        href="https://api.whatsapp.com/send?phone=5493548569580"                // fallback si JS bloquea window.open
+                        target="_blank"
+                        aria-label="WhatsApp"
+                        rel="noopener noreferrer"
                         className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-[#1F2A66] px-6 py-2.5 text-[#1F2A66] font-semibold hover:bg-[#1F2A66] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1F2A66]"
                       >
-                        {slide.btnText}
-                      </Link>
+                        Enviar mensaje
+                      </a>
                     )}
                   </div>
                 </div>

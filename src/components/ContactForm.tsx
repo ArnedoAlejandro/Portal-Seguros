@@ -78,10 +78,9 @@ export default function ContactForm() {
   return (
     <section id="contact" className="bg-[#F7F9FE] py-14">
       <h2 className="text-center text-3xl font-extrabold text-[#1F2A66]">
-          Contactame para asesorarte
-        </h2>
+        Contactame para asesorarte
+      </h2>
       <div className="mt-10 max-w-6xl mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
         {/* Lado informativo */}
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl font-extrabold text-[#1F2A66]">

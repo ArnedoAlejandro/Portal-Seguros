@@ -164,6 +164,7 @@ export default function SliderHome({
                   className="absolute inset-0 w-full h-full object-cover"
                   draggable={false}
                   loading={eager ? "eager" : "lazy"}
+                  fetchPriority={eager ? "high" : "auto"}
                   decoding="async"
                 />
                 {/* Overlay para legibilidad (más cargado abajo) */}

@@ -67,8 +67,8 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/alejandro-augusto-arnedo-27a189240/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/90 hover:text-white transition-colors"
               aria-label="Instagram"
+              className="text-white/90 hover:text-white transition-colors"
             >
               Instagram
             </a>
@@ -78,9 +78,9 @@ export default function Navbar() {
               href="https://api.whatsapp.com/send?phone=5493548569580"                // fallback si JS bloquea window.open
               // onClick={openWhatsApp}        // intenta deep/web/api en orden
               target="_blank"
+              aria-label="WhatsApp"
               rel="noopener noreferrer"
               className="text-white/90 hover:text-white transition-colors"
-              aria-label="WhatsApp"
             >
               WhatsApp
             </a>
